@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e38d91808f0609d4a81e0dfb8c981c34
+guid: d64fac6802d67a04094850c066d461ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,11 +105,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alex_static_0
+      name: Alex_sprites1_0
       rect:
         serializedVersion: 2
         x: 5
-        y: 11
+        y: 2
         width: 19
         height: 19
       alignment: 0
@@ -119,18 +119,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77d2e991a86d39c4aae9cdab85c98a1d
-      internalID: 425368099
+      spriteID: 06fb088f05d04ef4890ae690897c4458
+      internalID: 885730512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex_static_1
+      name: Alex_sprites1_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 11
+        x: 45
+        y: 2
         width: 19
         height: 19
       alignment: 0
@@ -140,18 +140,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21832981edb3fe5499c0009243d78c3b
-      internalID: -122601555
+      spriteID: 1d3359eabaeb90d4498559922fcd494d
+      internalID: 1131106896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex_static_2
+      name: Alex_sprites1_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 11
+        x: 84
+        y: 3
         width: 19
         height: 19
       alignment: 0
@@ -161,18 +161,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae5ac33707bc9f941bf30c927f30f184
-      internalID: 1260359528
+      spriteID: a2720fc728b2d1f4b8163f56bea9bd06
+      internalID: 316537284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex_static_3
+      name: Alex_sprites1_3
       rect:
         serializedVersion: 2
-        x: 99
-        y: 12
+        x: 125
+        y: 3
         width: 19
         height: 19
       alignment: 0
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 907629d785b5f9f44a1c1c309e05094f
-      internalID: 974657888
+      spriteID: bcfce7d316e923c4fad43697380786f1
+      internalID: 599945254
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Alex_static_0: 425368099
-      Alex_static_1: -122601555
-      Alex_static_2: 1260359528
-      Alex_static_3: 974657888
+      Alex_sprites1_0: 885730512
+      Alex_sprites1_1: 1131106896
+      Alex_sprites1_2: 316537284
+      Alex_sprites1_3: 599945254
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
