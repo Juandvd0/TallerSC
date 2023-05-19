@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Alex_movement : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class Alex_movement : MonoBehaviour
     private Animator Animator;
     private float Horizontal;
     private float LastShoot;
-    
+    private float vidasPersonaje;
+    private float sliderVidas;
 
     void Start()
     {
        Rigidbody2D = GetComponent<Rigidbody2D>(); 
         Animator = GetComponent<Animator>();
+        //sliderVidas.maxValue = vidasPersonaje;
+        //sliderVidas.value = sliderVidas.maxValue;
     }
 
     // Update is called once per frame
@@ -32,6 +36,19 @@ public class Alex_movement : MonoBehaviour
             LastShoot = Time.time;
         }
     }
+    // damage
+    //private void OnCollisionEnter2D(Collision2D otro)
+   // {
+      //  if(otro.gameObject.ComparreTag("Bala"))
+      //  {
+        //    vidasPersonaje--;
+         //   sliderVidas.value = vidasPersonaje;
+            //if (vidasPersonaje <= 0)
+           // {
+            //    destroy(this.gameObject);
+           // }
+      //  }
+  //  }
 private void Shoot(){
 
     Vector3 direction;
