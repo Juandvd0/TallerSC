@@ -26,7 +26,7 @@ public class Alex_movement : MonoBehaviour
         else if(Horizontal > 0.0f) transform.localScale = new Vector3(6.5f,6.5f,1.0f);
         Animator.SetBool("Running", Horizontal != 0.0f );
 
-        if(Input.GetKey(KeyCode.Space) && Time.time > LastShoot + 0.25f)
+        if(Input.GetKey(KeyCode.Space) && Time.time > LastShoot + 0.5f)
         {
             Shoot();
             LastShoot = Time.time;

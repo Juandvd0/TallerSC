@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b98eb8570f0156742aac0aa42ffc39b6
+guid: c8279bc75b69b0d478ed0f2d769773e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,34 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet_impact_0
+      name: grunt_run-1.png_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 158
         y: 0
-        width: 20
-        height: 20
-      alignment: 9
-      pivot: {x: 0.47276688, y: 0.49918944}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3377304e6ab052c4a9cb5d934769a53f
-      internalID: 1229310799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet_impact_1
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 0
-        width: 20
-        height: 20
+        width: 614
+        height: 578
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 839b4875f66cfe04c84de7be8026b341
-      internalID: 1918692371
+      spriteID: f98e566cd84cb434ba4910399575b5df
+      internalID: -1782317424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_impact_2
+      name: grunt_run-1.png_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 987
         y: 0
-        width: 20
-        height: 20
+        width: 614
+        height: 578
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0564f56236ce0d74e89593d02dccbbbe
-      internalID: -1739687593
+      spriteID: 2dcf154ef9879ca4f98f8b68a0fb6864
+      internalID: 1750294492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_impact_3
+      name: grunt_run-1.png_2
       rect:
         serializedVersion: 2
-        x: 60
+        x: 1820
         y: 0
-        width: 20
-        height: 20
+        width: 614
+        height: 578
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7569f468979ff3d4aba5c43be9d71fd4
-      internalID: 1702359566
+      spriteID: 3310bbcd74d9ac34e8844eb34e8881ba
+      internalID: -940504350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_impact_4
+      name: grunt_run-1.png_3
       rect:
         serializedVersion: 2
-        x: 80
+        x: 2653
         y: 0
-        width: 20
-        height: 20
+        width: 614
+        height: 578
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +182,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd5e506b7eb993b4988351211d897648
-      internalID: -797199534
+      spriteID: 6421b894df7124f43b7ccfb59db7bc1c
+      internalID: -1117273523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunt_run-1.png_4
+      rect:
+        serializedVersion: 2
+        x: 3486
+        y: 28
+        width: 614
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9116a0cec47e2754084587d55d241bdd
+      internalID: -625724124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunt_run-1.png_5
+      rect:
+        serializedVersion: 2
+        x: 4318
+        y: 0
+        width: 614
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00d6b489ad5a8c4e80faa271efbebe0
+      internalID: -873404718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunt_run-1.png_6
+      rect:
+        serializedVersion: 2
+        x: 5147
+        y: 0
+        width: 614
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd36d2bfdb2846b4e9a19da614d8b674
+      internalID: -1070825818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunt_run-1.png_7
+      rect:
+        serializedVersion: 2
+        x: 5980
+        y: 0
+        width: 614
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8039305f819a53e44b7c050e7d5fc03d
+      internalID: -827057181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunt_run-1.png_8
+      rect:
+        serializedVersion: 2
+        x: 6813
+        y: 0
+        width: 614
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4286a78d81ba60478f10fe5e79ae20e
+      internalID: 695501222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunt_run-1.png_9
+      rect:
+        serializedVersion: 2
+        x: 7646
+        y: 28
+        width: 614
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2d29701e43de549acb02773ce912f3
+      internalID: 1790806819
       vertices: []
       indices: 
       edges: []
@@ -220,11 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bullet_impact_0: 1229310799
-      bullet_impact_1: 1918692371
-      bullet_impact_2: -1739687593
-      bullet_impact_3: 1702359566
-      bullet_impact_4: -797199534
+      grunt_run-1.png_0: -1782317424
+      grunt_run-1.png_1: 1750294492
+      grunt_run-1.png_2: -940504350
+      grunt_run-1.png_3: -1117273523
+      grunt_run-1.png_4: -625724124
+      grunt_run-1.png_5: -873404718
+      grunt_run-1.png_6: -1070825818
+      grunt_run-1.png_7: -827057181
+      grunt_run-1.png_8: 695501222
+      grunt_run-1.png_9: 1790806819
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
