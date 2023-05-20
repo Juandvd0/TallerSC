@@ -12,7 +12,8 @@ public class Alex_movement : MonoBehaviour
     private float Horizontal;
     private float LastShoot;
     private float vidasPersonaje;
-    private float sliderVidas;
+    private float sliderVidas = 100;
+    public Slider barra;
 
     void Start()
     {
@@ -36,29 +37,27 @@ public class Alex_movement : MonoBehaviour
             LastShoot = Time.time;
         }
     }
-    // damage
-    //private void OnCollisionEnter2D(Collision2D otro)
-   // {
-      //  if(otro.gameObject.ComparreTag("Bala"))
-      //  {
-        //    vidasPersonaje--;
-         //   sliderVidas.value = vidasPersonaje;
-            //if (vidasPersonaje <= 0)
-           // {
-            //    destroy(this.gameObject);
-           // }
-      //  }
-  //  }
-private void Shoot(){
+ 
+    private void Shoot(){
 
-    Vector3 direction;
-    if(transform.localScale.x > 1.0f) direction = Vector2.right;
-    else direction = Vector2.left;
-    GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.1f, Quaternion.identity);
-    bullet.GetComponent<Bullet_Script>().setDirection(direction);
-}
+        Vector3 direction;
+        if(transform.localScale.x > 1.0f) direction = Vector2.right;
+        else direction = Vector2.left;
+        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.5f, Quaternion.identity);
+        bullet.GetComponent<Bullet_Script>().setDirection(direction);
+    }
+    
     private void FixedUpdate()
     {
         Rigidbody2D.velocity = new Vector2(Horizontal*Speed, Rigidbody2D.velocity.y);
     }
+
+    public void Hit(){
+        sliderVidas = sliderVidas - 20;
+        //sliderVidas.value = vida;
+        barra.value = 
+            sliderVidas;
+        if (sliderVidas == 0) Destroy(gameObject);
+    }
+
 }

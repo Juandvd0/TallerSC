@@ -9,33 +9,49 @@ public class Grunt_Script : MonoBehaviour
 
     private float LastShoot;
     private float LastMove;
+    private float sliderVidas = 40;
+    private float timeElapsed;
+    public float movementSpeed = 2f; 
+    public float threshold = 50f;
+
+    private float semilla;
+    private const long a = 1103515245;
+    private const long c = 12345;
+    private const long m = 2147483648;
     
     void Start()
     {
-        
+        Debug.Log(Time.deltaTime); 
+        semilla = Random.Range(0f, 10000f);
+         Debug.Log("Semilla:  " + semilla); 
     }
 
-    // Update is called once per frame
     void Update()
     {
-     /**
-     Random random = new Random();
-      int num = random.Next(0, 101);
-
-        if ( num <= 50 && Time.time > LastShoot + 1.5f) // Si el temporizador alcanza cero, cambiar la dirección y reiniciar el temporizador
-        {
-            Vector3 movement = new Vector3(transform.position.x - 1.0f, transform.position.y, transform.position.z);
-            transform.Translate(movement);
-            LastMove = Time.time;
-        }
-        else if(num > 50 && Time.time > LastShoot + 1.5f ) 
-        {
-            Vector3 movement = new Vector3(transform.position.x + 1.0f, transform.position.y, transform.position.z);
-            transform.Translate(movement);
-            LastMove = Time.time;
-        }
+    timeElapsed += Time.deltaTime;
         
-        **/
+      int num = Next(0, 101);
+        float variable = num;
+      
+        if(variable < 50 && Time.time > LastMove + 1.2f){
+            Debug.Log("Entro al primer if");
+            float direction2 = -60f;
+            Vector3 movement = new Vector3(direction2 * movementSpeed * Time.deltaTime, 0f, 0f);
+            transform.Translate(movement);
+            LastMove = Time.time;
+        }
+        else if(variable >= 50 && Time.time > LastMove + 1.2f)
+        {
+            Debug.Log("Entro al segundo if");
+            float direction2 = 60f;
+
+            Vector3 movement = new Vector3(direction2 * movementSpeed * Time.deltaTime, 0f, 0f);
+
+            transform.Translate(movement);
+            LastMove = Time.time;
+        }
+    
+        if(Alex == null) return;
         Vector3 direction = Alex.transform.position - transform.position;
         if(direction.x >= 0.0f) transform.localScale = new Vector3(6.5f,6.5f,1.0f);
         else transform.localScale = new Vector3(-6.5f,6.5f,1.0f);
@@ -47,11 +63,25 @@ public class Grunt_Script : MonoBehaviour
     }
 
     private void Shoot(){
-        Debug.Log("Shoot");
         Vector3 direction;
         if(transform.localScale.x > 1.0f) direction = Vector2.right;
         else direction = Vector2.left;
-        GameObject bullet = Instantiate(BulletPrefabEnemy, transform.position + direction * 0.1f, Quaternion.identity);
+        GameObject bullet = Instantiate(BulletPrefabEnemy, transform.position + direction * 0.5f, Quaternion.identity);
         bullet.GetComponent<Bullet_Grunt_Script>().setDirection(direction);
     }
+
+     public void Hit(){
+        sliderVidas = sliderVidas - 20;
+        if (sliderVidas == 0) Destroy(gameObject);
+    }
+
+
+    public int Next(int min, int max)
+    {
+        semilla = (a * semilla + c) % m;
+        int num2 =  (int)((max - min) * ((double)semilla / m))+min;
+        semilla = semilla * Time.time;
+        return num2;
+    }
+
 }

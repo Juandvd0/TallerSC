@@ -8,13 +8,15 @@ public class Bullet_Script : MonoBehaviour
     private Rigidbody2D Rigidbody2D;
     private Animator Animator;
     private Vector2 Direction;
+    public AudioClip gunSound;
+
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>(); 
         Animator = GetComponent<Animator>(); 
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(gunSound);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -29,4 +31,14 @@ public class Bullet_Script : MonoBehaviour
     public void DestroyBullet(){
         Destroy(gameObject);
     }
+    private void OnTriggerEnter2D(Collider2D collision){
+        //Alex_movement alex = collision.GetComponent<Alex_movement>();
+        Grunt_Script grunt = collision.GetComponent<Grunt_Script>();
+        if (grunt != null)
+        {
+            grunt.Hit();
+        }
+        DestroyBullet();
+    }
+    
 }
