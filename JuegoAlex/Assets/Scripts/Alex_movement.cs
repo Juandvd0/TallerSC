@@ -14,6 +14,7 @@ public class Alex_movement : MonoBehaviour
     private float vidasPersonaje;
     private float sliderVidas = 100;
     public Slider barra;
+    private bool velocidadDuplicada = false;
 
     void Start()
     {
@@ -47,9 +48,16 @@ public class Alex_movement : MonoBehaviour
         bullet.GetComponent<Bullet_Script>().setDirection(direction);
     }
     
-    private void FixedUpdate()
+     private void FixedUpdate()
     {
-        Rigidbody2D.velocity = new Vector2(Horizontal*Speed, Rigidbody2D.velocity.y);
+        if (velocidadDuplicada)
+        {
+            Rigidbody2D.velocity = new Vector2(Horizontal * Speed * 2, Rigidbody2D.velocity.y);
+        }
+        else
+        {
+            Rigidbody2D.velocity = new Vector2(Horizontal * Speed, Rigidbody2D.velocity.y);
+        }
     }
 
     public void Hit(){
@@ -58,6 +66,34 @@ public class Alex_movement : MonoBehaviour
         barra.value = 
             sliderVidas;
         if (sliderVidas == 0) Destroy(gameObject);
+    }
+
+    public void IncreaseHealth(){
+    if (sliderVidas < 100)
+    {
+        sliderVidas += 20;
+        if (sliderVidas > 100)
+        {
+            sliderVidas = 100;
+        }
+        barra.value = sliderVidas;
+    }
+    }
+
+    public void DuplicateSpeed()
+    {
+        StartCoroutine(DuplicateSpeedCoroutine(3.0f));
+    }
+
+    private IEnumerator DuplicateSpeedCoroutine(float duration)
+    {
+        Speed *= 1.3f;
+        velocidadDuplicada = true;
+
+        yield return new WaitForSeconds(duration);
+
+        Speed /= 1.3f;
+        velocidadDuplicada = false;
     }
 
 }
