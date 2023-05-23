@@ -14,6 +14,8 @@ public class Grunt_Script : MonoBehaviour
     public float movementSpeed = 2f; 
     public float threshold = 50f;
 
+    public static event System.Action OnEnemyEliminated;
+
     private float semilla;
     private const long a = 1103515245;
     private const long c = 12345;
@@ -23,7 +25,9 @@ public class Grunt_Script : MonoBehaviour
     {
         Debug.Log(Time.deltaTime); 
         semilla = Random.Range(0f, 10000f);
-         Debug.Log("Semilla:  " + semilla); 
+        Debug.Log("Semilla:  " + semilla); 
+        Alex = GameObject.Find("Alex");
+
     }
 
     void Update()
@@ -34,7 +38,6 @@ public class Grunt_Script : MonoBehaviour
         float variable = num;
       
         if(variable < 50 && Time.time > LastMove + 1.2f){
-            Debug.Log("Entro al primer if");
             float direction2 = -60f;
             Vector3 movement = new Vector3(direction2 * movementSpeed * Time.deltaTime, 0f, 0f);
             transform.Translate(movement);
@@ -42,7 +45,6 @@ public class Grunt_Script : MonoBehaviour
         }
         else if(variable >= 50 && Time.time > LastMove + 1.2f)
         {
-            Debug.Log("Entro al segundo if");
             float direction2 = 60f;
 
             Vector3 movement = new Vector3(direction2 * movementSpeed * Time.deltaTime, 0f, 0f);
@@ -51,7 +53,7 @@ public class Grunt_Script : MonoBehaviour
             LastMove = Time.time;
         }
     
-        if(Alex == null) return;
+        
         Vector3 direction = Alex.transform.position - transform.position;
         if(direction.x >= 0.0f) transform.localScale = new Vector3(6.5f,6.5f,1.0f);
         else transform.localScale = new Vector3(-6.5f,6.5f,1.0f);
@@ -60,6 +62,7 @@ public class Grunt_Script : MonoBehaviour
             Shoot();
             LastShoot = Time.time;
         }
+        if(Alex == null) return;
     }
 
     private void Shoot(){
@@ -72,7 +75,14 @@ public class Grunt_Script : MonoBehaviour
 
      public void Hit(){
         sliderVidas = sliderVidas - 20;
-        if (sliderVidas == 0) Destroy(gameObject);
+        if (sliderVidas == 0){
+             
+            //Alex.SubtractEnemies();
+            OnEnemyEliminated?.Invoke();
+            //gameObject.GetComponent<Alex_movement>().SubtractEnemies();
+            Destroy(gameObject);
+           
+        } 
     }
 
 

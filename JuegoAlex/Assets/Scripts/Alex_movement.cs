@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Alex_movement : MonoBehaviour
 {
+
+    public event EventHandler MuerteJugador;
     public GameObject BulletPrefab;
+    public GameObject GruntPrefab;
     public float Speed;
     private Rigidbody2D Rigidbody2D;
     private Animator Animator;
@@ -13,15 +17,25 @@ public class Alex_movement : MonoBehaviour
     private float LastShoot;
     private float vidasPersonaje;
     private float sliderVidas = 100;
+    private float enemiesGenerated = 20;
+    private float leftEnemies = 20;
+
     public Slider barra;
     private bool velocidadDuplicada = false;
+    private float LastGenerate;
+
+    private float semilla;
+    private const long a = 1103515245;
+    private const long c = 12345;
+    private const long m = 2147483648;
 
     void Start()
     {
-       Rigidbody2D = GetComponent<Rigidbody2D>(); 
+        Rigidbody2D = GetComponent<Rigidbody2D>(); 
         Animator = GetComponent<Animator>();
-        //sliderVidas.maxValue = vidasPersonaje;
-        //sliderVidas.value = sliderVidas.maxValue;
+        LastGenerate= Time.time;
+        Grunt_Script.OnEnemyEliminated += HandleEnemyEliminated;
+      
     }
 
     // Update is called once per frame
@@ -37,6 +51,8 @@ public class Alex_movement : MonoBehaviour
             Shoot();
             LastShoot = Time.time;
         }
+        GenerateEnemies();
+
     }
  
     private void Shoot(){
@@ -62,22 +78,26 @@ public class Alex_movement : MonoBehaviour
 
     public void Hit(){
         sliderVidas = sliderVidas - 20;
-        //sliderVidas.value = vida;
         barra.value = 
             sliderVidas;
-        if (sliderVidas == 0) Destroy(gameObject);
+        if (sliderVidas == 0) {
+            Debug.Log("Jugador muere");
+            MuerteJugador?.Invoke(this, EventArgs.Empty);
+
+           Destroy(gameObject);
+        }
     }
 
     public void IncreaseHealth(){
-    if (sliderVidas < 100)
-    {
-        sliderVidas += 20;
-        if (sliderVidas > 100)
+        if (sliderVidas < 100)
         {
-            sliderVidas = 100;
+            sliderVidas += 20;
+            if (sliderVidas > 100)
+            {
+                sliderVidas = 100;
+            }
+            barra.value = sliderVidas;
         }
-        barra.value = sliderVidas;
-    }
     }
 
     public void DuplicateSpeed()
@@ -94,6 +114,58 @@ public class Alex_movement : MonoBehaviour
 
         Speed /= 1.3f;
         velocidadDuplicada = false;
+    }
+
+    private void GenerateEnemies(){
+        int num = Next(0,100);
+
+        if(enemiesGenerated > 0 && Time.time > LastGenerate + 3.0f ){
+
+            if(num < 20){
+                Instantiate(GruntPrefab, new Vector3(1.015f,-2.598f,0), Quaternion.identity);
+                enemiesGenerated -= 1;
+            }
+            else if(num < 40 && num >= 20){
+                 Instantiate(GruntPrefab, new Vector3(9.05f,-2.598f,0), Quaternion.identity);
+                 enemiesGenerated -= 1;
+            }
+            else if(num < 60 && num >= 40){
+                 Instantiate(GruntPrefab, new Vector3(12.664f,-2.598f,0), Quaternion.identity);
+                 enemiesGenerated -= 1;
+            }
+            else if(num < 80 && num >= 60){
+                Instantiate(GruntPrefab, new Vector3(17.161f,-2.598f,0), Quaternion.identity);
+                enemiesGenerated -= 1;
+            }
+            else if(num < 101 && num >= 80){
+                 Instantiate(GruntPrefab, new Vector3(24.765f,-2.598f,0), Quaternion.identity);
+                 enemiesGenerated -= 1;
+            }
+        LastGenerate = Time.time;
+        }
+       else if(enemiesGenerated == 0 && leftEnemies == 0 && Time.time > LastGenerate + 5.0f){
+            //Acabar juego por matar enemigos
+
+            MuerteJugador?.Invoke(this, EventArgs.Empty);
+            Debug.Log("Juego terminado");
+       }
+
+    }
+
+    private void HandleEnemyEliminated()
+    {
+        leftEnemies -= 1;
+        Debug.Log("Enemigos restantes: " + leftEnemies);
+        // Lógica para manejar la notificación de eliminación del enemigo
+        Debug.Log("¡Un enemigo fue eliminado!");
+    }
+
+    public int Next(int min, int max)
+    {
+        semilla = (a * semilla + c) % m;
+        int num2 =  (int)((max - min) * ((double)semilla / m))+min;
+        semilla = semilla * Time.time;
+        return num2;
     }
 
 }
